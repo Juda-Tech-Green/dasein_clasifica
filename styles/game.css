@@ -1,0 +1,23 @@
+.marcador_general{
+    background-color: lightgray;
+}
+
+.game_view{
+    height: 70vh;
+}
+
+.columna_jugador_1{
+    background-image: url('../media/images/unidad_1.jpeg');
+    background-size: cover;
+    opacity: 0.7;
+}
+
+.columna_jugador_2{
+       background-image: url('../media/images/unidad_2.jpeg');
+    background-size: cover;
+    opacity: 0.7; 
+}
+
+.advertising{
+    height: 20vh;
+}
