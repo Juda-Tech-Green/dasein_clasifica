@@ -1,23 +1,144 @@
+body{
+    font-family: "Press Start 2P", system-ui;
+}
 .marcador_general{
-    background-color: lightblue;
+    background-color: #ebebe0;
+    font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .game_view{
+    position: relative;
+    overflow: hidden;
     height: 75vh;
+
 }
 
+
 .columna_jugador_1{
+    position: relative;
     background-image: url('../media/images/unidad_1.jpeg');
     background-size: cover;
-    opacity: 0.7;
+    overflow: hidden;
 }
 
 .columna_jugador_2{
+    position: relative;
        background-image: url('../media/images/unidad_2.jpeg');
     background-size: cover;
-    opacity: 0.7; 
+    overflow: hidden;
+}
+
+.contenedor_caneca_1, .contenedor_caneca_2{
+position: absolute;
+bottom: 10px;
+left: 50%;
+padding: 0;
+margin: 0;
+  transform: translateX(-50%);
+  transition: left 0.1s linear; /* 👈 movimiento suave */
+
+}
+
+.residuo_1 {
+  position: absolute;
+  width: 6em;
+  height: auto;
+  pointer-events: none; /* no bloquea clicks ni hovers */
+  user-select: none;
+  transition: transform 0.1s ease;
+  animation: rotate 5s ease infinite, fall 4s linear forwards;
+}
+
+.residuo_2 {
+  position: absolute;
+  width: 6em;
+  height: auto;
+  pointer-events: none; /* no bloquea clicks ni hovers */
+  user-select: none;
+  transition: transform 0.1s ease;
+  animation: rotate 5s ease infinite, fall 7s linear forwards;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fall {
+  0% {
+    top: -80px;
+    opacity: 0.9;
+  }
+  100% {
+    top: 95%;
+    opacity: 1;
+  }
+}
+
+.feedback {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  animation: popFade 1s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes popFade {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+    top: -30px;
+  }
+}
+
+.caneca_activa{
+    height: 15em;
+    
+}
+.progress{
+    background-color: gray;
+}
+.carousel-inner{
+    max-height: 15vh;
 }
 
 .advertising{
-    height: 15vh;
+  max-height: 15vh;
+}
+
+
+.end-game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ebebe04f; /* marrón semitransparente */
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  animation: fadeIn 0.8s ease-out;
+  z-index: 9999;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
